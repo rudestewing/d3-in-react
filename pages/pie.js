@@ -7,7 +7,9 @@ const PageComponent = () => {
       {{
         content: (
           <Fragment>
-            <div>Hello there</div>
+            <section className="content">
+              <div className="container mx-auto">Render pie chart here</div>
+            </section>
           </Fragment>
         ),
       }}
