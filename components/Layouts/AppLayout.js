@@ -28,7 +28,7 @@ const AppLayout = ({ children }) => {
             {pageMenus.map(({ path, label }) => (
               <li key={path}>
                 <Link href={path}>
-                  <a className="p-3 mx-3 inline-block hover:bg-blue-700 hover:text-white">
+                  <a className="px-5 py-3 mx-3 inline-block font-semibold tracking-wider hover:bg-blue-700 hover:text-white">
                     {label}
                   </a>
                 </Link>
