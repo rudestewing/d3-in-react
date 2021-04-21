@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const AppLayout = ({ children }) => {
+  const router = useRouter()
+
   const pageMenus = [
     {
       path: '/bar',
@@ -21,14 +24,21 @@ const AppLayout = ({ children }) => {
   ]
 
   return (
-    <div id="app-layout" className="h-full">
-      <header className="bg-white shadow-lg border-b border-gray-300">
+    <div id="app-layout" className="min-h-full bg-gray-50">
+      <header className="bg-white shadow-sm border-b border-gray-300">
         <nav>
           <ul className="flex justify-center">
             {pageMenus.map(({ path, label }) => (
               <li key={path}>
                 <Link href={path}>
-                  <a className="px-5 py-3 mx-3 inline-block font-semibold tracking-wider hover:bg-blue-700 hover:text-white">
+                  <a
+                    className={`
+                      px-5 py-3 inline-block font-semibold tracking-wider hover:bg-blue-800 hover:text-white bg-white
+                      ${
+                        router.pathname == path &&
+                        'bg-blue-600 text-white outline-none'
+                      }`}
+                  >
                     {label}
                   </a>
                 </Link>
@@ -37,9 +47,7 @@ const AppLayout = ({ children }) => {
           </ul>
         </nav>
       </header>
-      <div id="main-content" className="bg-gray-100 h-full">
-        {children.content && children.content}
-      </div>
+      <div id="main-content">{children.content && children.content}</div>
     </div>
   )
 }
