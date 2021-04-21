@@ -44,6 +44,7 @@ const BarD3Only = () => {
     const xAxis = axisBottom(xScale)
       .tickSize(-innerHeight)
       .tickFormat((number) => format('.3s')(number).replace('G', 'B'))
+
     const yAxis = axisLeft(yScale)
 
     const xAxisGroup = contentGroup

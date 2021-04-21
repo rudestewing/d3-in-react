@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { csv, format, scaleBand, scaleLinear, max } from 'd3'
+import { csv, scaleBand, scaleLinear, max } from 'd3'
 import {
   width,
   height,
@@ -26,10 +26,6 @@ const Bar = () => {
     })
   }
 
-  useEffect(() => {
-    loadData()
-  }, [])
-
   const xValue = (d) => d.population
   const yValue = (d) => d.country
 
@@ -42,15 +38,9 @@ const Bar = () => {
     .range([0, innerHeight])
     .padding(0.2)
 
-  function shuffleData() {
-    const _data = [...data].map((item) => {
-      return {
-        ...item,
-        population: Math.floor(Math.random() * (1415046 - 130759 + 1)) + 130759,
-      }
-    })
-    setData(_data)
-  }
+  useEffect(() => {
+    loadData()
+  }, [])
 
   return (
     <>
@@ -67,12 +57,6 @@ const Bar = () => {
           />
         </g>
       </svg>
-      {/* <button
-        className="px-5 py-3 bg-blue-500 text-white hover:bg-blue-800"
-        onClick={shuffleData}
-      >
-        Randomize Value
-      </button> */}
     </>
   )
 }
