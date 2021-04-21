@@ -13,7 +13,6 @@ import Bars from './Bars'
 
 const Bar = () => {
   const [data, setData] = useState([])
-  const [isSort, setIsSort] = useState()
 
   function loadData() {
     csv('/data/top-population-country.csv').then((responseData) => {
@@ -68,12 +67,12 @@ const Bar = () => {
           />
         </g>
       </svg>
-      <button
+      {/* <button
         className="px-5 py-3 bg-blue-500 text-white hover:bg-blue-800"
         onClick={shuffleData}
       >
         Randomize Value
-      </button>
+      </button> */}
     </>
   )
 }
