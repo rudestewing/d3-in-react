@@ -40,7 +40,7 @@ const Line = () => {
   const lineGenerator = line()
     .x((d) => xScale(d.timestamp))
     .y((d) => yScale(d.temperature))
-    .curve(curveBasis)
+  // .curve(curveBasis)
 
   useEffect(() => {
     loadData()
@@ -51,7 +51,14 @@ const Line = () => {
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <BottomAxis data={data} scale={xScale} height={innerHeight} />
         <LeftAxis data={data} scale={yScale} width={innerWidth} />
-        <Path data={data} lineGenerator={lineGenerator} />
+        <Path
+          data={data}
+          lineGenerator={lineGenerator}
+          width={innerWidth}
+          height={innerHeight}
+          xScale={xScale}
+          yScale={yScale}
+        />
       </g>
     </svg>
   )
