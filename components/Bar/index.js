@@ -46,21 +46,19 @@ const Bar = () => {
   }, [])
 
   return (
-    <>
-      <svg width={width} height={height}>
-        <g transform={`translate(${margin.left}, ${margin.top})`}>
-          <BottomAxis xScale={xScale} height={innerHeight} />
-          <LeftAxis yScale={yScale} width={innerWidth} />
-          <Bars
-            data={data}
-            xScale={xScale}
-            yScale={yScale}
-            xValue={xValue}
-            yValue={yValue}
-          />
-        </g>
-      </svg>
-    </>
+    <svg width={width} height={height}>
+      <g transform={`translate(${margin.left}, ${margin.top})`}>
+        <BottomAxis xScale={xScale} height={innerHeight} />
+        <LeftAxis yScale={yScale} width={innerWidth} />
+        <Bars
+          data={data}
+          xScale={xScale}
+          yScale={yScale}
+          xValue={xValue}
+          yValue={yValue}
+        />
+      </g>
+    </svg>
   )
 }
 

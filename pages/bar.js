@@ -13,12 +13,17 @@ const PageComponent = () => {
           <Fragment>
             <section className="content">
               <div className="container mx-auto">
-                <Bar />
-              </div>
-            </section>
-            <section>
-              <div className="container mx-auto">
-                <BarD3Only />
+                <h1 className="text-lg text-center font-semibold mb-5">
+                  Top World Population
+                </h1>
+                <div className="mb-4">
+                  <h1>D3 sebagai penghitung, D3 yang menangani DOM</h1>
+                  <BarD3Only />
+                </div>
+                <div className="mb-4">
+                  <h1>D3 sebagai penghitung, React yang menangani DOM</h1>
+                  <Bar />
+                </div>
               </div>
             </section>
           </Fragment>
