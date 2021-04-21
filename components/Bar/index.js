@@ -16,12 +16,15 @@ const Bar = () => {
 
   function loadData() {
     csv('/data/top-population-country.csv').then((responseData) => {
-      const _data = [...responseData].map(({ country, population }) => {
-        return {
-          country,
-          population: parseFloat(population),
-        }
-      })
+      const _data = [...responseData]
+        .map(({ country, population }) => {
+          return {
+            country,
+            population: parseFloat(population),
+          }
+        })
+        .sort((a, b) => b.population - a.population)
+
       setData(_data)
     })
   }

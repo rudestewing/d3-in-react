@@ -80,12 +80,14 @@ const BarD3Only = () => {
 
   useEffect(() => {
     csv('/data/top-population-country.csv').then((responseData) => {
-      const data = [...responseData].map(({ country, population }) => {
-        return {
-          country,
-          population: parseFloat(population),
-        }
-      })
+      const data = [...responseData]
+        .map(({ country, population }) => {
+          return {
+            country,
+            population: parseFloat(population),
+          }
+        })
+        .sort((a, b) => b.population - a.population)
 
       renderChart(data)
     })
