@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { Fragment } from 'react'
 
-import DemoLayout from '@/components/layouts/DemoLayout'
+import DemoLayout from '@/components/Layouts/DemoLayout'
 const LineChart = dynamic(() => import('@/components/demo/LineChart.js'))
 
 const PageComponent = () => {

@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import dynamic from 'next/dynamic'
 
-import DemoLayout from '@/components/layouts/DemoLayout'
+import DemoLayout from '@/components/Layouts/DemoLayout'
 const ScatterPlot = dynamic(() => import('@/components/demo/ScatterPlot'))
 
 const PageComponent = () => {
