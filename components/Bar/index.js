@@ -46,7 +46,7 @@ const Bar = () => {
   }, [])
 
   return (
-    <svg width={width} height={height}>
+    <svg width={width} height={height} style={{ margin: '0 auto' }}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <BottomAxis xScale={xScale} height={innerHeight} />
         <LeftAxis yScale={yScale} width={innerWidth} />

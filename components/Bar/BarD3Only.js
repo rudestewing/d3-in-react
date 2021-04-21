@@ -93,7 +93,14 @@ const BarD3Only = () => {
     })
   }, [])
 
-  return <svg width={width} height={height} ref={svgRef}></svg>
+  return (
+    <svg
+      width={width}
+      height={height}
+      ref={svgRef}
+      style={{ margin: '0 auto' }}
+    ></svg>
+  )
 }
 
 export default BarD3Only

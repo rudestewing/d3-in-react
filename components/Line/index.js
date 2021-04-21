@@ -47,7 +47,7 @@ const Line = () => {
   }, [])
 
   return (
-    <svg width={width} height={height}>
+    <svg width={width} height={height} style={{ margin: '0 auto' }}>
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <BottomAxis data={data} scale={xScale} height={innerHeight} />
         <LeftAxis data={data} scale={yScale} width={innerWidth} />
