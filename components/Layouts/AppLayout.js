@@ -24,7 +24,7 @@ const AppLayout = ({ children }) => {
   ]
 
   return (
-    <div id="app-layout" className="bg-gray-50 h-full">
+    <div id="app-layout" className="bg-gray-50 ">
       <header className="block w-full bg-white shadow-sm border-b border-gray-300 ">
         <nav>
           <ul className="flex justify-center">
@@ -36,7 +36,7 @@ const AppLayout = ({ children }) => {
                       px-5 py-3 inline-block font-semibold tracking-wider hover:bg-blue-800 hover:text-white bg-white
                       ${
                         router.pathname == path &&
-                        'bg-blue-600 text-white outline-none'
+                        'bg-blue-700 text-white outline-none'
                       }`}
                   >
                     {label}
@@ -47,9 +47,7 @@ const AppLayout = ({ children }) => {
           </ul>
         </nav>
       </header>
-      <div id="main-content" className="min-h-full">
-        {children.content && children.content}
-      </div>
+      <div id="main-content">{children.content && children.content}</div>
       <footer className="block bg-white border-t border-gray-300 py-16">
         <div className="container mx-auto">
           <a

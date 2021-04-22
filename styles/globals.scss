@@ -2,16 +2,13 @@
 
 html,
 body {
-  height: 100%;
   padding: 0;
   margin: 0;
   @apply font-body;
-  @apply relative;
 }
 
-
 #__next {
-  height: 100%;
+  // ..
 }
 
 a {
