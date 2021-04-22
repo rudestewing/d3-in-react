@@ -68,19 +68,6 @@ const WorldMap = (props) => {
             />
           )
         })}
-      {/* {data.map((d, index) => {
-        const [x, y] = projection([d.coordinate[1], d.coordinate[0]])
-
-        return (
-          <circle
-            key={index}
-            r={sizeScale(sizeValue(d))}
-            cx={x}
-            cy={y}
-            style={{ fill: '#137B80', opacity: 0.3 }}
-          ></circle>
-        )
-      })} */}
     </g>
   )
 }

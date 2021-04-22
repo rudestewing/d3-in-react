@@ -18,21 +18,6 @@ const MissingMigrant = () => {
   const data = useMissingMigrantsData()
   const worldAtlas = useWorldAtlas()
   const [brushExtent, setBrushExtent] = useState([])
-  // const [filteredData, setFilteredData] = useState([])
-
-  // useEffect(() => {
-  //   console.log('brush Extent changed')
-  //   if (brushExtent.length) {
-  //     setFilteredData(
-  //       [...data].filter((d) => {
-  //         const date = d.date
-  //         return date >= brushExtent[0] && date <= brushExtent[1]
-  //       })
-  //     )
-  //   } else {
-  //     setFilteredData([...data])
-  //   }
-  // }, [brushExtent])
 
   const filteredData = useMemo(() => {
     return brushExtent.length

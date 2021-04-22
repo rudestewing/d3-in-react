@@ -17,8 +17,8 @@ const PageComponent = () => {
                 </h1>
                 <div className="mb-4">
                   <h1>
-                    D3 sebagai penghitung & yang bertugas mengangani DOM, dimix
-                    dengan React
+                    D3js yang menangani perhitungan, D3js & React menangani DOM
+                    (mix)
                   </h1>
                   <Line />
                 </div>

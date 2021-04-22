@@ -17,11 +17,13 @@ const PageComponent = () => {
                   Top World Population
                 </h1>
                 <div className="mb-4">
-                  <h1>D3 sebagai penghitung, D3 yang menangani DOM</h1>
+                  <h1>D3js yang menangani perhitungan & DOM</h1>
                   <BarD3Only />
                 </div>
                 <div className="mb-4">
-                  <h1>D3 sebagai penghitung, React yang menangani DOM</h1>
+                  <h1>
+                    D3js yang menangani perhitungan, React yang menangani DOM
+                  </h1>
                   <Bar />
                 </div>
               </div>
