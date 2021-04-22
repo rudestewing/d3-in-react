@@ -19,20 +19,22 @@ const Path = ({ data, lineGenerator, width, height, xScale, yScale }) => {
   }
 
   function trackingMouseMove(e) {
-    const bisect = bisector((d) => d.timestamp).left
-    const xPos = pointer(e, e.target)[0]
-    const x0 = bisect(data, xScale.invert(xPos))
-    const d0 = data[x0]
+    if (data.length) {
+      const bisect = bisector((d) => d.timestamp).left
+      const xPos = pointer(e, e.target)[0]
+      const x0 = bisect(data, xScale.invert(xPos))
+      const d0 = data[x0]
 
-    setFocusPosition({
-      ...focusPosition,
-      x: xScale(d0.timestamp),
-      y: yScale(d0.temperature),
-      label: {
-        timestamp: timeFormat('%d/%m/%Y - %I %p')(d0.timestamp),
-        temperature: Math.floor(d0.temperature),
-      },
-    })
+      setFocusPosition({
+        ...focusPosition,
+        x: xScale(d0.timestamp),
+        y: yScale(d0.temperature),
+        label: {
+          timestamp: timeFormat('%d/%m/%Y - %I %p')(d0.timestamp),
+          temperature: Math.floor(d0.temperature),
+        },
+      })
+    }
   }
 
   return (

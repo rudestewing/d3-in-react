@@ -24,8 +24,8 @@ const AppLayout = ({ children }) => {
   ]
 
   return (
-    <div id="app-layout" className="min-h-full bg-gray-50">
-      <header className="bg-white shadow-sm border-b border-gray-300">
+    <div id="app-layout" className="bg-gray-50 h-full">
+      <header className="block w-full bg-white shadow-sm border-b border-gray-300 ">
         <nav>
           <ul className="flex justify-center">
             {pageMenus.map(({ path, label }) => (
@@ -47,7 +47,24 @@ const AppLayout = ({ children }) => {
           </ul>
         </nav>
       </header>
-      <div id="main-content">{children.content && children.content}</div>
+      <div id="main-content" className="min-h-full">
+        {children.content && children.content}
+      </div>
+      <footer className="block bg-white border-t border-gray-300 py-16">
+        <div className="container mx-auto">
+          <a
+            href="https://github.com/rudestewing/d3-in-react"
+            className="text-sm text-blue-600 underline block mb-4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github Repository
+          </a>
+          <a href="/demo" className="text-sm text-blue-600 underline block">
+            Other demo
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }
