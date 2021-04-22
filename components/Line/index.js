@@ -9,7 +9,7 @@ import {
 } from '@/lib/config/dimensions'
 import BottomAxis from './BottomAxis'
 import LeftAxis from './LeftAxis'
-import Path from './Path'
+import Field from './Field'
 
 const Line = () => {
   const [data, setData] = useState([])
@@ -51,7 +51,7 @@ const Line = () => {
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <BottomAxis data={data} scale={xScale} height={innerHeight} />
         <LeftAxis data={data} scale={yScale} width={innerWidth} />
-        <Path
+        <Field
           data={data}
           lineGenerator={lineGenerator}
           width={innerWidth}

@@ -19,7 +19,7 @@ const Pie = () => {
         { label: 'Kiwi', value: 42 },
         { label: 'Pumpkin', value: 32 },
       ])
-    })
+    }, 500)
   }
 
   useEffect(() => {
@@ -35,7 +35,6 @@ const Pie = () => {
   const dataReady = createPie(data)
 
   const colorScale = scaleOrdinal(schemeCategory10)
-  const formatter = format('.2f')
 
   return (
     <svg width={width} height={height} style={{ margin: '0 auto' }}>
@@ -52,7 +51,6 @@ const Pie = () => {
                   fontSize="0.9em"
                   fill="white"
                   transform={`translate(${x}, ${y - 10})`}
-                  // y="-10"
                 >
                   {d.value}
                 </text>
@@ -61,7 +59,6 @@ const Pie = () => {
                   fontSize="0.9em"
                   fill="white"
                   transform={`translate(${x}, ${y + 10})`}
-                  // y="10"
                 >
                   {d.data.label}
                 </text>
