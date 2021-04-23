@@ -15,6 +15,7 @@ const LeftAxis = ({ data, scale, width }) => {
 
     const axisGroup = node.call(axis)
 
+    // ubah styling Axis group sesuai keinginan
     axisGroup.selectAll('.domain').attr('stroke', 'lightgray')
     axisGroup.selectAll('.tick line').attr('stroke', 'lightgray')
   }

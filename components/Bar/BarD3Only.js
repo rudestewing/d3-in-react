@@ -15,23 +15,28 @@ import {
   max,
   format,
 } from 'd3'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const BarD3Only = () => {
+  const [data, setData] = useState([])
   const svgRef = useRef(null)
 
-  function renderChart(data) {
+  function renderChart() {
     const svg = select(svgRef.current)
 
+    // make sure SVG dikosongkan childnya terlebih dahulu
     svg.html('')
 
+    // buat group
     const contentGroup = svg
       .append('g')
       .attr('transform', `translate(${margin.left} ${margin.top})`)
 
+    // deklarasikan xValue [dimana value dari sumbu X ini adalah populasi dan data dari sumbu Y adalah negara]
     const xValue = (d) => d.population
     const yValue = (d) => d.country
 
+    // buat X dan Y Scale
     const xScale = scaleLinear()
       .domain([0, max(data, xValue)])
       .range([0, innerWidth])
@@ -41,46 +46,36 @@ const BarD3Only = () => {
       .range([0, innerHeight])
       .padding(0.2)
 
+    // configurasi Axis yang dibutuhkan, dimana kita membutuhkan AxisBottom (sebagai X) & AxisLeft (sebagai Y)
     const xAxis = axisBottom(xScale)
       .tickSize(-innerHeight)
       .tickFormat((number) => format('.3s')(number).replace('G', 'B'))
 
     const yAxis = axisLeft(yScale)
 
-    const xAxisGroup = contentGroup
+    // render Axis kedalam Content Group dengan .call()
+    contentGroup
       .append('g')
-      .attr('transform', `translate(0, ${innerHeight})`)
       .call(xAxis)
+      .attr('transform', `translate(0, ${innerHeight})`)
 
-    xAxisGroup.selectAll('line').attr('stroke', 'lightgray')
-    xAxisGroup.selectAll('.domain').remove()
+    contentGroup.append('g').call(yAxis)
 
-    const yAxisGroup = contentGroup.append('g').call(yAxis)
-
-    yAxisGroup.selectAll('line').attr('storke', 'transparent')
-    yAxisGroup.selectAll('.domain, .tick line').remove()
-
+    // render bars sesuai dengan data yang diberikan
     contentGroup
       .selectAll('rect')
       .data(data)
       .enter()
       .append('rect')
       .attr('y', (d) => yScale(d.country))
-      .attr('width', 0)
+      .attr('width', (d) => xScale(d.population))
       .attr('height', yScale.bandwidth())
       .attr('fill', 'teal')
-
-    contentGroup
-      .selectAll('rect')
-      .transition()
-      .duration(800)
-      .attr('width', (d) => xScale(d.population))
-      .delay(0)
   }
 
-  useEffect(() => {
+  function loadData() {
     csv('/data/top-population-country.csv').then((responseData) => {
-      const data = [...responseData]
+      const _data = [...responseData]
         .map(({ country, population }) => {
           return {
             country,
@@ -89,9 +84,17 @@ const BarD3Only = () => {
         })
         .sort((a, b) => b.population - a.population)
 
-      renderChart(data)
+      setData(_data)
     })
+  }
+
+  useEffect(() => {
+    loadData()
   }, [])
+
+  useEffect(() => {
+    if (data.length) renderChart()
+  }, [data])
 
   return (
     <svg

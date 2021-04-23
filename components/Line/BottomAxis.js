@@ -18,6 +18,7 @@ const BottomAxis = ({ data, scale, height }) => {
 
     const axisGroup = node.call(axis)
 
+    // ubah styling Axis group sesuai keinginan
     axisGroup.attr('transform', `translate(0, ${height})`)
     axisGroup.selectAll('.domain').attr('stroke', 'lightgray')
     axisGroup.selectAll('.tick line').attr('stroke', 'lightgray')
