@@ -40,7 +40,6 @@ const Line = () => {
   const lineGenerator = line()
     .x((d) => xScale(d.timestamp))
     .y((d) => yScale(d.temperature))
-  // .curve(curveBasis)
 
   useEffect(() => {
     loadData()
