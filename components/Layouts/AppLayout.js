@@ -21,6 +21,10 @@ const AppLayout = ({ children }) => {
       path: '/world-map',
       label: 'World Map',
     },
+    {
+      path: '/area',
+      label: 'Area',
+    },
   ]
 
   return (

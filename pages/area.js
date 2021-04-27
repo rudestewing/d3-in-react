@@ -22,7 +22,7 @@ const PageComponent = () => {
                     rel="noopener noreferrer"
                     className="text-blue-500 underline inline-block"
                   >
-                    with VX
+                    with VX Library
                   </a>
                 </div>
                 <div className="mb-4">
